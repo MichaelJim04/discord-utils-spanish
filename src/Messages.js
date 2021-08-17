@@ -96,7 +96,7 @@ module.exports = {
         if(!guildID) throw new TypeError("No se ha introducido la ID del servidor");
         if(!/^[0-9]{18}$/gm.test(guildID)) throw new TypeError("Se ha introducido una ID de servidor invalida");
 
-        await levels.deleteMany({ guildID: guildId }).catch(err => console.log(`Hubo un error eliminando los datos de mensajes en un servidor: ${err}`));
+        await db.deleteMany({ guildID: guildId }).catch(err => console.log(`Hubo un error eliminando los datos de mensajes en un servidor: ${err}`));
 
         return true;
     },
@@ -110,11 +110,18 @@ module.exports = {
 
         if(!user) return false;
 
-        const leaderboard = await levels.find({ guildID: guildID }).sort([['messages', 'descending']]).exec();
+        const leaderboard = await db.find({ guildID: guildID }).sort([['messages', 'descending']]).exec();
 
-        user.position = leaderboard.findIndex(user => user.userID === userID) + 1;
+        //user.position = leaderboard.findIndex(user => user.userID === userID) + 1;
 
-        return user;
+        let data = {
+            userID: user.userID,
+            guildID: user.guildID,
+            messages: user.messages,
+            position: leaderboard.findIndex(user => user.userID === userID) + 1
+        }
+
+        return data;
     },
     fetchLeaderboard: async(client, guildID) => {
         if(!client) throw new TypeError("No se ha introducido el cliente del bot");
@@ -122,7 +129,7 @@ module.exports = {
         if(!guildID) throw new TypeError("No se ha introducido la ID del servidor");
         if(!/^[0-9]{18}$/gm.test(guildID)) throw new TypeError("Se ha introducido una ID de servidor invalida");
 
-        const leaderboardUsers = await levels.find({ guildID: guildID }).sort([['messages', 'descending']]).exec();
+        const leaderboardUsers = await db.find({ guildID: guildID }).sort([['messages', 'descending']]).exec();
 
         if(!leaderboardUsers || leaderboardUsers.length < 1) return [];
 
