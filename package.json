@@ -1,0 +1,24 @@
+{
+  "name": "discord-utils-spanish",
+  "version": "1.9.0",
+  "description": "Un package que incluye diferentes caracteristicas y funciones para usarlas en tu bot de Discord!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"No se, adios\" && exit 1"
+  },
+  "keywords": [
+    "discord",
+    "discord-utils",
+    "discors-messages",
+    "discord-levels",
+    "mongo",
+    "mongodb"
+  ],
+  "author": "! \" ItzTheJim04",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.5.3",
+    "mongoose": "^5.13.7",
+    "ms": "^2.1.3"
+  }
+}
