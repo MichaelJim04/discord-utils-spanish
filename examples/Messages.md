@@ -12,8 +12,8 @@ Nota: Este proceso solo se hace una vez en todo el proyecto
 ## Notas
 
 - Estos ejemplos se basan asumiendo que tu `Discord.js Client` esta definido como `client`
-- Aqui estamos basandonos en <a href="https://www.npmjs.com/package/discord.js">Discord.js v13</a> por lo cual factores como lo son `client.on("messageCreate", async(message)...` deben ser reemplazados por `client.on("message", async(message)...`
-- Todas las funciones del NPM devuelven una promesa por lo tanto deben usarse en codigos asincronicas. (Usando `await`)
+- Aqui estamos basandonos en <a href="https://www.npmjs.com/package/discord.js">Discord.js v13</a> por lo cual factores como lo son `client.on("messageCreate", async(message)...` deben ser reemplazados por `client.on("message", async(message)...` si estas usando Discord.js v12
+- Todas las funciones del NPM devuelven una promesa por lo tanto deben usarse en codigos asincronicas. Usando `await`
 
 # Ejemplos y Usos
 
