@@ -118,7 +118,6 @@ messages.fetchLeaderboard(<CLient - Discord.js Client>, <GuildID - String>)
 Promise<Array>
 ```
 
-## Resultado 📤
 
 ## Informacion 🤝
 - Este package esta en desarrollo, por lo cual esta constantemente actualizandose
