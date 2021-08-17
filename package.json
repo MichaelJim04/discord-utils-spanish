@@ -1,6 +1,6 @@
 {
   "name": "discord-utils-spanish",
-  "version": "1.9.0",
+  "version": "1.9.5",
   "description": "Un package que incluye diferentes caracteristicas y funciones para usarlas en tu bot de Discord!",
   "main": "index.js",
   "scripts": {
