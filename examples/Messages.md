@@ -51,7 +51,7 @@ if(leaderboard.length < 1) message.reply({ content: 'No he encontrado mensajes r
 
 const lb = leaderboard.slice(0, 15) //Aqui especificamos que cantidad obtendremos de usuarios, en este caso obtendremos los 15 primeros usuarios
 
-const leaderboardUsers = lb.map(user => `${user.position}. ${user.tag}\nMensajes: ${user.messages.toLocaleString()}`).join('\n') // We map the outputs.
+const leaderboardUsers = lb.map(data => `${data.position}. ${data.user.tag}\nMensajes: ${data.messages.toLocaleString()}`).join('\n') // We map the outputs.
 
 message.reply({ content: `**Leaderboard de Mensajes en ${message.guild.name}**\n\n${leaderboardUsers}` }) //Regresamos la leaderboard con los usuarios con mas mensajes
 ```
