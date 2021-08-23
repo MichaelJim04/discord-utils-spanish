@@ -40,9 +40,9 @@ mongoConnect("mongodb://...") //Aqui enlazamos con la url de nuestra db de Mongo
 
 ## Metodos y/o Usos ✏️
 
- - **[Haz Click Aqui](https://discord.gg/8yEY9AXz74)** para ver las funciones del sistema de Trackeo de Mensajes, hacer el setup, y unos pequeños ejemplos
+ - **[Haz Click Aqui](https://github.com/MichaelJim04/discord-utils-spanish/blob/main/examples/Messages.md)** para ver las funciones del sistema de Trackeo de Mensajes, hacer el setup, y unos pequeños ejemplos
 
- - **[Haz Click Aqui](https://discord.gg/8yEY9AXz74)** para ver las funciones del sistema de Trackeo de XP, hacer el setup, y unos ejemplos basicos para este
+ - **[Haz Click Aqui](https://github.com/MichaelJim04/discord-utils-spanish/blob/main/examples/Levels.md)** para ver las funciones del sistema de Trackeo de XP, hacer el setup, y unos ejemplos basicos para este
 
 
 ## Informacion 🤝
