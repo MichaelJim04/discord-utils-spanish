@@ -10,113 +10,39 @@
 </div>
 
 ## Que es **discord-utils-spanish**
-- Un NPM Multiproposito que tiene Funciones y Caracteristicas para Entretener e Implementarlas en tu Bot de Discord!
+- Un NPM Multiproposito que tiene Funciones y Caracteristicas usando MongoDB para ser de Utilidad e Implementarlas en tu Bot de Discord!
 
 ## Caracteristicas (En progreso 🛠️)
-- **Messages Tracker con MongoDB**
+
+- **Messages Tracker**
+- **XP Tracker**
 
 ## Instala el package 📥
+
 ```cli
 npm install discord-utils-spanish
 ```
 
 ## Setup Basico 📚
 
-- **Messages Tracker**
-
 ```js
-const { mongoConnect, messages } = require('discord-utils-spanish') 
+const { mongoConnect } = require('discord-utils-spanish') 
 
 mongoConnect("mongodb://...") //Aqui enlazamos con la url de nuestra db de MongoDB
+
 /* 
   * Necesitas crear un cluster con MongoDB para usar esta caracteristica
   * Aqui enlazamos con la url de nuestra db de MongoDB
   * Este proceso solo se hace 1 vez
 */
+
 ```
 
-## Metodos y/o Funciones ✏️
+## Metodos y/o Usos ✏️
 
-- **addMessages**
+ - **[Haz Click Aqui](https://discord.gg/8yEY9AXz74)** para ver las funciones del sistema de Trackeo de Mensajes, hacer el setup, y unos pequeños ejemplos
 
-```js
-messages.addMessages(<GuildID - String>, <UserID - String>, <Amount - Number>)
-```
-- Salida
-
-```cli
-Promise<Boolean>
-```
-
-
-- **removeMessages**
-
-```js
-messages.removeMessages(<GuildID - String>, <UserID - String>, <Amount - Number>)
-```
-- Salida
-
-```cli
-Promise<Boolean>
-```
-
-
-- **setMessages**
-
-```js
-messages.setMessages(<GuildID - String>, <UserID - String>, <Amount - Number>)
-```
-- Salida
-
-```cli
-Promise<Boolean>
-```
-
-
-- **deleteUserData**
-
-```js
-messages.deleteUserData(<GuildID - String>, <UserID - String>)
-```
-- Salida
-
-```cli
-Promise<Boolean>
-```
-
-
-- **deleteGuildData**
-
-```js
-messages.deleteGuildData(<GuildID - String>)
-```
-- Salida
-
-```cli
-Promise<Boolean>
-```
-
-- **fetchUser**
-
-```js
-messages.fetchUser(<GuildID - String>, <UserID - String>)
-```
-- Salida
-
-```cli
-Promise<Boolean/Object>
-```
-
-- **fetchLeaderboard**
-
-```js
-messages.fetchLeaderboard(<CLient - Discord.js Client>, <GuildID - String>)
-```
-- Salida
-
-```cli
-Promise<Array>
-```
+ - **[Haz Click Aqui](https://discord.gg/8yEY9AXz74)** para ver las funciones del sistema de Trackeo de XP, hacer el setup, y unos ejemplos basicos para este
 
 
 ## Informacion 🤝
