@@ -1,7 +1,15 @@
 const mongoose = require('mongoose')
 const db = require('../models/messages.js')
+const { Client } = require('discord.js')
 
 module.exports = {
+
+    /**
+     * @param {guildID} [string] - La ID del servidor
+     * @param {userID} [string] - La ID del usuario
+     * @param {amount} [number] - La cantidad de mensajes a agregar
+     */
+
     addMessages: async(guildID, userID, amount) => {
         if(!guildID) throw new TypeError("No se ha introducido la ID del servidor");
         if(!userID) throw new TypeError("No se ha introducido la ID del usuario");
@@ -30,6 +38,13 @@ module.exports = {
 
         return true;
     },
+    
+    /**
+     * @param {guildID} [string] - La ID del servidor
+     * @param {userID} [string] - La ID del usuario
+     * @param {amount} [number] - La cantidad de mensajes a remover
+     */
+
     removeMessages: async(guildID, userID, amount) => {
         if(!guildID) throw new TypeError("No se ha introducido la ID del servidor");
         if(!userID) throw new TypeError("No se ha introducido la ID del usuario");
@@ -50,6 +65,13 @@ module.exports = {
 
         return true;
     },
+
+    /**
+     * @param {guildID} [string] - La ID del servidor
+     * @param {userID} [string] - La ID del usuario
+     * @param {amount} [number] - La cantidad de mensajes a setear
+     */
+
     setMessages: async(guildID, userID, amount) => {
         if(!guildID) throw new TypeError("No se ha introducido la ID del servidor");
         if(!userID) throw new TypeError("No se ha introducido la ID del usuario");
@@ -78,6 +100,12 @@ module.exports = {
 
         return true;
     },
+
+    /**
+     * @param {guildID} [string] - La ID del servidor
+     * @param {userID} [string] - La ID del usuario
+     */
+
     deleteUserData: async(guildID, userID) => {
         if(!guildID) throw new TypeError("No se ha introducido la ID del servidor");
         if(!userID) throw new TypeError("No se ha introducido la ID del usuario");
@@ -92,6 +120,11 @@ module.exports = {
 
         return true;
     },
+
+    /**
+     * @param {guildID} [string] - La ID del servidor
+     */
+
     deleteGuildData: async(guildID) => {
         if(!guildID) throw new TypeError("No se ha introducido la ID del servidor");
         if(!/^[0-9]{18}$/gm.test(guildID)) throw new TypeError("Se ha introducido una ID de servidor invalida");
@@ -100,6 +133,12 @@ module.exports = {
 
         return true;
     },
+
+    /**
+     * @param {guildID} [string] - La ID del servidor
+     * @param {userID} [string] - La ID del usuario
+     */
+
     fetchUser: async(guildID, userID) => {
         if(!guildID) throw new TypeError("No se ha introducido la ID del servidor");
         if(!userID) throw new TypeError("No se ha introducido la ID del usuario");
@@ -112,8 +151,6 @@ module.exports = {
 
         const leaderboard = await db.find({ guildID: guildID }).sort([['messages', 'descending']]).exec();
 
-        //user.position = leaderboard.findIndex(user => user.userID === userID) + 1;
-
         let data = {
             userID: user.userID,
             guildID: user.guildID,
@@ -123,6 +160,12 @@ module.exports = {
 
         return data;
     },
+
+    /**
+     * @param {Client} [client] - Tu Discord.js Client
+     * @param {guildID} [string] - La ID del servidor
+     */
+    
     fetchLeaderboard: async(client, guildID) => {
         if(!client) throw new TypeError("No se ha introducido el cliente del bot");
         if(typeof client !== 'object') throw new TypeError("El parametro \"client\" debe ser un objeto");
@@ -149,6 +192,7 @@ module.exports = {
                 position: (leaderboardUsers.findIndex(i => i.guildID === data.guildID && i.userID === data.userID) + 1)
             });
         })
+        
         return leaderboardArray;
     }
 }
