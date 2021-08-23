@@ -1,7 +1,14 @@
 const mongoose = require('mongoose')
 
 exports.messages = require('./src/Messages')
+exports.levels = require('./src/Levels.js')
+
+/**
+ * @param {String} [mongoUrl] - La URL de Mongoose
+*/
+
 exports.mongoConnect = async(mongoUrl) => {
+    
     if (!mongoUrl) throw new TypeError("No se ha introducido un URL de la conexion a mongoose");
     mongoose.connect(mongoUrl, {
         useNewUrlParser: true,
